@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+    <header>
+        <h1>Technical Analysis & Charting</h1>
+        <nav>
+            <ul>
+                <li><a href="index1.html">Home</a></li>
+                <li><a href="#basics">Charting Basics</a></li>
+                <li><a href="#patterns">Chart Patterns</a></li>
+                <li><a href="#indicators">Indicators</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="basics" class="technical">
+        <h2>Charting Basics</h2>
+        <p>Charting is a way to visually represent stock price movements over time. There are various types of charts like line charts, candlestick charts, and bar charts. Understanding these chart types is the first step in mastering technical analysis.</p>
+    </section>
+
+    <section id="patterns" class="technical">
+        <h2>Important Chart Patterns</h2>
+        <p>Chart patterns are formations created by the movement of a stock's price. Some of the most common patterns include:</p>
+        <ul>
+            <li><b>Head and Shoulders:</b> A reversal pattern that signals a stock's price is likely to move against the current trend.</li>
+            <li><b>Double Top and Double Bottom:</b> These patterns signal reversals in trends at the peak or trough of a trend.</li>
+            <li><b>Cup and Handle:</b> A continuation pattern that signals bullish momentum after a short pause.</li>
+        </ul>
+    </section>
+
+    <section id="indicators" class="technical">
+        <h2>Indicators & How to Read Them</h2>
+        <p>Technical indicators help traders assess the future direction of the stock market. Common indicators include:</p>
+        <ul>
+            <li><b>Moving Averages:</b> Used to smooth out price data by creating a constantly updated average price.</li>
+            <li><b>Relative Strength Index (RSI):</b> A momentum indicator that measures the speed and change of price movements.</li>
+            <li><b>Bollinger Bands:</b> These indicate volatility by measuring the high and low range of price action.</li>
+        </ul>
+        
+    </section>
+    <section id="chart-example" class="technical">
+    <h2>Price Movement Example</h2>
+    <canvas id="priceChart" width="400" height="200"></canvas>
+    </section>
+
+    <script>
+        var ctx = document.getElementById('priceChart').getContext('2d');
+        var priceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'Stock Price',
+                    data: [120, 130, 125, 140, 135, 150, 160],
+                    borderColor: 'rgba(0, 255, 255, 1)',
+                    backgroundColor: 'rgba(0, 255, 255, 0.2)',
+                    fill: true,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+    </script>
+
+
+    <footer>
+        <p>&copy; 2024 Stock Market Mastery. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
