@@ -93,7 +93,7 @@
         }
     
         .chatbox-footer button {
-            width: 10%;
+            width: 20%;
             padding: 8px;
             background-color: #00ff00;
             border: none;
@@ -144,17 +144,85 @@
     
             // Basic response logic
             if (message.includes("candlestick")) {
-                return "Candlestick patterns help in understanding market sentiment. Look for hammer, shooting star, and engulfing patterns.";
+                return "Candlestick patterns are key in understanding market sentiment. Patterns like hammer, shooting star, and engulfing show potential market reversals.";
             } else if (message.includes("support") || message.includes("resistance")) {
-                return "Support is a level where a stock stops falling, and resistance is where it stops rising.";
+                return "Support is a price level where a stock stops falling, and resistance is a level where it stops rising. These levels help to predict price reversals.";
             } else if (message.includes("moving average")) {
-                return "A moving average smooths out price data. Common ones are the 50-day and 200-day moving averages.";
+                return "A moving average smooths out price data to identify trends. Common ones are the 50-day and 200-day moving averages.";
             } else if (message.includes("rsi")) {
-                return "RSI (Relative Strength Index) indicates whether a stock is overbought or oversold. Values above 70 are overbought, below 30 are oversold.";
+                return "The RSI (Relative Strength Index) indicates if a stock is overbought (>70) or oversold (<30), helping to find possible reversal points.";
             } else if (message.includes("macd")) {
-                return "MACD (Moving Average Convergence Divergence) is a trend-following indicator that shows the relationship between two moving averages.";
+                return "MACD (Moving Average Convergence Divergence) measures momentum and indicates potential trend reversals by comparing two moving averages.";
+            } else if (message.includes("bollinger bands")) {
+                return "Bollinger Bands are a volatility indicator with upper and lower bands around a moving average. When price approaches the bands, it's often overbought or oversold.";
+            } else if (message.includes("fibonacci")) {
+                return "Fibonacci retracement levels are used in technical analysis to find support and resistance levels by measuring retracements within a trend.";
+            } else if (message.includes("volume")) {
+                return "Volume analysis shows the strength of price movements. High volume with price movement indicates strong momentum; low volume indicates weaker moves.";
+            } else if (message.includes("market types")) {
+                return "The stock market has three types: Bull Market (uptrend), Bear Market (downtrend), and Sideways Market (range-bound trading).";
+            } else if (message.includes("dividend")) {
+                return "Dividends are regular payments to shareholders from a company's profits. Dividend-paying stocks are often considered stable investments.";
+            } else if (message.includes("blue chip")) {
+                return "Blue-chip stocks are from well-established, financially stable companies with a history of reliable earnings, like Apple or Microsoft.";
+            } else if (message.includes("p/e ratio") || message.includes("price to earnings")) {
+                return "The P/E (Price-to-Earnings) ratio measures a company's current share price relative to its per-share earnings, helping assess if it's over or undervalued.";
+            } else if (message.includes("eps") || message.includes("earnings per share")) {
+                return "Earnings per Share (EPS) measures a company's profit per outstanding share, indicating profitability and value for investors.";
+            } else if (message.includes("day trading")) {
+                return "Day trading involves buying and selling stocks within the same day to capitalize on short-term price movements. It's risky but can be profitable.";
+            } else if (message.includes("swing trading")) {
+                return "Swing trading involves holding stocks for several days to capture price swings. Traders use technical analysis to identify entry and exit points.";
+            } else if (message.includes("ipo")) {
+                return "An IPO (Initial Public Offering) is the first time a private company offers its shares to the public, allowing them to be traded on stock exchanges.";
+            } else if (message.includes("short selling")) {
+                return "Short selling is borrowing shares to sell at a high price, aiming to buy them back at a lower price. It profits from a stock's decline but is high risk.";
+            } else if (message.includes("stop-loss")) {
+                return "A stop-loss is a pre-set order to sell a stock once it reaches a specific price, helping to minimize potential losses.";
+            } else if (message.includes("limit order")) {
+                return "A limit order sets a maximum or minimum price at which you're willing to buy or sell a stock, ensuring you don't pay more than your limit.";
+            } else if (message.includes("market order")) {
+                return "A market order is an order to buy or sell a stock immediately at the current market price, prioritizing speed over price.";
+            } else if (message.includes("capital gain")) {
+                return "Capital gain is the profit from selling a stock for more than you paid. Long-term gains often have lower tax rates compared to short-term gains.";
+            } else if (message.includes("diversification")) {
+                return "Diversification spreads investments across different assets to reduce risk, ensuring that one loss is less likely to affect your overall portfolio.";
+            } else if (message.includes("etf")) {
+                return "ETFs (Exchange-Traded Funds) are investment funds that hold a mix of assets and trade like stocks, offering diversified, low-cost investments.";
+            } else if (message.includes("mutual fund")) {
+                return "A mutual fund pools money from investors to buy a diversified portfolio of stocks, bonds, or other securities, managed by professionals.";
+            } else if (message.includes("hedge fund")) {
+                return "Hedge funds use pooled capital and employ various strategies to generate high returns, often for accredited or wealthy investors.";
+            } else if (message.includes("dollar-cost averaging")) {
+                return "Dollar-cost averaging is investing a fixed amount at regular intervals, regardless of price, which helps reduce the impact of volatility over time.";
+            } else if (message.includes("capitalization")) {
+                return "Market capitalization is the total market value of a company's shares. It's calculated as stock price multiplied by shares outstanding.";
+            } else if (message.includes("technical analysis")) {
+                return "Technical analysis studies price and volume data to predict future price movements. It uses indicators, patterns, and trends for decision-making.";
+            } else if (message.includes("fundamental analysis")) {
+                return "Fundamental analysis evaluates a company's financial health by analyzing earnings, revenue, and assets to determine intrinsic stock value.";
+            } else if (message.includes("portfolio")) {
+                return "A portfolio is a collection of investments owned by an individual or organization. Diversified portfolios help spread risk.";
+            } else if (message.includes("bull market")) {
+                return "A bull market is characterized by rising stock prices, often driven by investor confidence and expectations of strong future earnings.";
+            } else if (message.includes("bear market")) {
+                return "A bear market is a period of declining stock prices, often triggered by economic downturns, high inflation, or rising interest rates.";
+            } else if (message.includes("revenue")) {
+                return "Revenue is the total income a company generates from its business activities before subtracting any expenses, a key indicator of growth.";
+            } else if (message.includes("profit margin")) {
+                return "Profit margin shows how much profit a company keeps after expenses. High margins indicate strong profitability and efficiency.";
+            } else if (message.includes("yield")) {
+                return "Yield refers to the earnings generated from an investment, expressed as a percentage of the investment's cost or current price.";
+            } else if (message.includes("index fund")) {
+                return "An index fund is a mutual fund or ETF designed to match the performance of a specific market index, like the S&P 500, providing broad exposure.";
+            } else if (message.includes("nasdaq")) {
+                return "Nasdaq is a global electronic marketplace for buying and selling securities, known for hosting many tech companies like Apple and Amazon.";
+            } else if (message.includes("s&p 500")) {
+                return "The S&P 500 is a stock market index tracking the performance of 500 large companies listed on stock exchanges in the U.S., widely seen as a benchmark.";
+            } else if (message.includes("dividend yield")) {
+                return "Dividend yield is a stock's annual dividend divided by its current price, showing the percentage return an investor earns from dividends alone.";
             } else {
-                return "I'm still learning. Try asking about candlestick patterns, support/resistance, RSI, or MACD.";
+                return "I'm still learning. Try asking about specific topics like candlestick patterns, moving averages, support/resistance, or dividend yields.";
             }
         }
     </script>
