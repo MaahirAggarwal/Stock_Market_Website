@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Stock Market</title>
+    <link rel="stylesheet" href="style.css"> <!-- Linked to an external stylesheet -->
+</head>
+<body>
+    
+    <header>
+        <h1>Stock Market Mastery</h1>
+        <nav>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="technical.html">Technical Analysis</a></li>
+                <li><a href="fundamentals.html">Company Fundamentals</a></li>
+                <li><a href="stock-picking.html">Stock Picking</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="overview" class="overview">
+        <h2>What is the Stock Market?</h2>
+        <p>The stock market is where buyers and sellers trade shares of publicly traded companies. It plays a crucial role in the economy, providing companies with access to capital in exchange for giving investors a slice of ownership. Understanding how the stock market operates is essential for anyone who wants to invest, as it helps you to evaluate risk, understand market cycles, and develop long-term strategies.</p>
+    </section>
+        <!-- Chatbot Section -->
+    <div class="chatbox" id="chatbox">
+        <div class="chatbox-header">
+            Stock Market Bot
+        </div>
+        <div class="chatbox-body" id="chatbox-body">
+            <div class="chatbox-message bot">Hello! Ask me anything about the stock market.</div>
+        </div>
+        <div class="chatbox-footer">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <style>
+        /* Chatbot styling */
+        .chatbox {
+            position: fixed;
+            bottom: 0;
+            right: 20px;
+            width: 350px;
+            background-color: #f1f1f1;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .chatbox-header {
+            background-color: #243b55;
+            color: white;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .chatbox-body {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #ffffff;
+        }
+
+        .chatbox-message {
+            margin-bottom: 10px;
+        }
+
+        .chatbox-message.user {
+            text-align: right;
+            color: green;
+        }
+
+        .chatbox-message.bot {
+            text-align: left;
+            color: red;
+        }
+
+        .chatbox-footer {
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+
+        .chatbox-footer input {
+            width: 85%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .chatbox-footer button {
+            width: 20%;
+            padding: 8px;
+            background-color: #00ff00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        // Basic chatbot logic
+        function sendMessage() {
+            const userInput = document.getElementById("user-input").value;
+            const chatboxBody = document.getElementById("chatbox-body");
+
+            if (userInput === "") return;  // Prevent empty messages
+
+            // Append user's message to chatbox
+            const userMessageDiv = document.createElement("div");
+            userMessageDiv.className = "chatbox-message user";
+            userMessageDiv.innerText = userInput;
+            chatboxBody.appendChild(userMessageDiv);
+
+            // Scroll to the bottom after new message
+            chatboxBody.scrollTop = chatboxBody.scrollHeight;
+
+            // Generate bot response
+            const botMessage = generateResponse(userInput);
+
+            // Append bot's response to chatbox
+            setTimeout(() => {
+                const botMessageDiv = document.createElement("div");
+                botMessageDiv.className = "chatbox-message bot";
+                botMessageDiv.innerText = botMessage;
+                chatboxBody.appendChild(botMessageDiv);
+
+                // Scroll to the bottom after bot message
+                chatboxBody.scrollTop = chatboxBody.scrollHeight;
+            }, 500);  // Bot replies after half a second
+
+            // Clear input field after sending
+            document.getElementById("user-input").value = "";
+        }
+
+        // Simple response generator function
+        function generateResponse(input) {
+            // Convert input to lowercase for consistency
+            const message = input.toLowerCase();
+
+            // Basic response logic
+            if (message.includes("candlestick")) {
+                return "Candlestick patterns are key in understanding market sentiment. Patterns like hammer, shooting star, and engulfing show potential market reversals.";
+            } else if (message.includes("support") || message.includes("resistance")) {
+                return "Support is a price level where a stock stops falling, and resistance is a level where it stops rising. These levels help to predict price reversals.";
+            } else if (message.includes("moving average")) {
+                return "A moving average smooths out price data to identify trends. Common ones are the 50-day and 200-day moving averages.";
+            } else if (message.includes("rsi")) {
+                return "The RSI (Relative Strength Index) indicates if a stock is overbought (>70) or oversold (<30), helping to find possible reversal points.";
+            } else if (message.includes("macd")) {
+                return "MACD (Moving Average Convergence Divergence) measures momentum and indicates potential trend reversals by comparing two moving averages.";
+            } else if (message.includes("bollinger bands")) {
+                return "Bollinger Bands are a volatility indicator with upper and lower bands around a moving average. When price approaches the bands, it's often overbought or oversold.";
+            } else if (message.includes("fibonacci")) {
+                return "Fibonacci retracement levels are used in technical analysis to find support and resistance levels by measuring retracements within a trend.";
+            } else if (message.includes("volume")) {
+                return "Volume analysis shows the strength of price movements. High volume with price movement indicates strong momentum; low volume indicates weaker moves.";
+            } else if (message.includes("market types")) {
+                return "The stock market has three types: Bull Market (uptrend), Bear Market (downtrend), and Sideways Market (range-bound trading).";
+            } else if (message.includes("dividend")) {
+                return "Dividends are regular payments to shareholders from a company's profits. Dividend-paying stocks are often considered stable investments.";
+            } else if (message.includes("blue chip")) {
+                return "Blue-chip stocks are from well-established, financially stable companies with a history of reliable earnings, like Apple or Microsoft.";
+            } else if (message.includes("p/e ratio") || message.includes("price to earnings")) {
+                return "The P/E (Price-to-Earnings) ratio measures a company's current share price relative to its per-share earnings, helping assess if it's over or undervalued.";
+            } else if (message.includes("eps") || message.includes("earnings per share")) {
+                return "Earnings per Share (EPS) measures a company's profit per outstanding share, indicating profitability and value for investors.";
+            } else if (message.includes("day trading")) {
+                return "Day trading involves buying and selling stocks within the same day to capitalize on short-term price movements. It's risky but can be profitable.";
+            } else if (message.includes("swing trading")) {
+                return "Swing trading involves holding stocks for several days to capture price swings. Traders use technical analysis to identify entry and exit points.";
+            } else if (message.includes("ipo")) {
+                return "An IPO (Initial Public Offering) is the first time a private company offers its shares to the public, allowing them to be traded on stock exchanges.";
+            } else if (message.includes("short selling")) {
+                return "Short selling is borrowing shares to sell at a high price, aiming to buy them back at a lower price. It profits from a stock's decline but is high risk.";
+            } else if (message.includes("stop-loss")) {
+                return "A stop-loss is a pre-set order to sell a stock once it reaches a specific price, helping to minimize potential losses.";
+            } else if (message.includes("limit order")) {
+                return "A limit order sets a maximum or minimum price at which you're willing to buy or sell a stock, ensuring you don't pay more than your limit.";
+            } else if (message.includes("market order")) {
+                return "A market order is an order to buy or sell a stock immediately at the current market price, prioritizing speed over price.";
+            } else if (message.includes("capital gain")) {
+                return "Capital gain is the profit from selling a stock for more than you paid. Long-term gains often have lower tax rates compared to short-term gains.";
+            } else if (message.includes("diversification")) {
+                return "Diversification spreads investments across different assets to reduce risk, ensuring that one loss is less likely to affect your overall portfolio.";
+            } else if (message.includes("etf")) {
+                return "ETFs (Exchange-Traded Funds) are investment funds that hold a mix of assets and trade like stocks, offering diversified, low-cost investments.";
+            } else if (message.includes("mutual fund")) {
+                return "A mutual fund pools money from investors to buy a diversified portfolio of stocks, bonds, or other securities, managed by professionals.";
+            } else if (message.includes("hedge fund")) {
+                return "Hedge funds use pooled capital and employ various strategies to generate high returns, often for accredited or wealthy investors.";
+            } else if (message.includes("dollar-cost averaging")) {
+                return "Dollar-cost averaging is investing a fixed amount at regular intervals, regardless of price, which helps reduce the impact of volatility over time.";
+            } else if (message.includes("capitalization")) {
+                return "Market capitalization is the total market value of a company's shares. It's calculated as stock price multiplied by shares outstanding.";
+            } else if (message.includes("technical analysis")) {
+                return "Technical analysis studies price and volume data to predict future price movements. It uses indicators, patterns, and trends for decision-making.";
+            } else if (message.includes("fundamental analysis")) {
+                return "Fundamental analysis evaluates a company's financial health by analyzing earnings, revenue, and assets to determine intrinsic stock value.";
+            } else if (message.includes("portfolio")) {
+                return "A portfolio is a collection of investments owned by an individual or organization. Diversified portfolios help spread risk.";
+            } else if (message.includes("bull market")) {
+                return "A bull market is characterized by rising stock prices, often driven by investor confidence and expectations of strong future earnings.";
+            } else if (message.includes("bear market")) {
+                return "A bear market is a period of declining stock prices, often triggered by economic downturns, high inflation, or rising interest rates.";
+            } else if (message.includes("revenue")) {
+                return "Revenue is the total income a company generates from its business activities before subtracting any expenses, a key indicator of growth.";
+            } else if (message.includes("profit margin")) {
+                return "Profit margin shows how much profit a company keeps after expenses. High margins indicate strong profitability and efficiency.";
+            } else if (message.includes("yield")) {
+                return "Yield refers to the earnings generated from an investment, expressed as a percentage of the investment's cost or current price.";
+            } else if (message.includes("index fund")) {
+                return "An index fund is a mutual fund or ETF designed to match the performance of a specific market index, like the S&P 500, providing broad exposure.";
+            } else if (message.includes("nasdaq")) {
+                return "Nasdaq is a global electronic marketplace for buying and selling securities, known for hosting many tech companies like Apple and Amazon.";
+            } else if (message.includes("s&p 500")) {
+                return "The S&P 500 is a stock market index tracking the performance of 500 large companies listed on stock exchanges in the U.S., widely seen as a benchmark.";
+            } else if (message.includes("dividend yield")) {
+                return "Dividend yield is a stock's annual dividend divided by its current price, showing the percentage return an investor earns from dividends alone.";
+            } else {
+                return "I'm still learning. Try asking about specific topics like candlestick patterns, moving averages, support/resistance, or dividend yields.";
+            }
+        
+        }
+    </script>
+
+
+    <footer>
+        <p>&copy; 2024 Stock Market Mastery. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
