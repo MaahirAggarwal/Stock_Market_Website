@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technical Analysis</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For charts -->
 </head>
 <body>
 
@@ -14,202 +13,72 @@
         <h1>Technical Analysis & Charting</h1>
         <nav>
             <ul>
+                
                 <li><a href="index1.html">Home</a></li>
-                <li><a href="#basics">Charting Basics</a></li>
+                <li><a href="#candlesticks">Candlestick Patterns</a></li>
                 <li><a href="#patterns">Chart Patterns</a></li>
-                <li><a href="#indicators">Indicators</a></li>
+                <li><a href="#indicators">Indicators & Oscillators</a></li>
+                <li><a href="#support-resistance">Support & Resistance</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="basics" class="technical">
-        <h2>Charting Basics</h2>
-        <p>Charting is a way to visually represent stock price movements over time. There are various types of charts like line charts, candlestick charts, and bar charts. Understanding these chart types is the first step in mastering technical analysis.</p>
+    <!-- Section: Introduction -->
+    <section id="intro" class="technical">
+        <h2>Introduction to Technical Analysis</h2>
+        <p>Technical analysis is the art and science of forecasting future prices based on the examination of past price movements. It is built on key assumptions:</p>
+        <ul>
+            <li><b>Price Discounts Everything:</b> All relevant information is already reflected in the stock price.</li>
+            <li><b>Price Movements Are Not Random:</b> Prices move in identifiable trends.</li>
+            <li><b>History Tends to Repeat Itself:</b> Market psychology drives repetitive patterns over time.</li>
+        </ul>
     </section>
 
+    <!-- Section: Candlestick Patterns -->
+    <section id="candlesticks" class="technical">
+        <h2>Candlestick Patterns</h2>
+        <div class="pattern">
+            <img src="Hammer_Pattern.png" alt="Hammer Pattern" width="300">
+            <p><b>Hammer:</b> Occurs in a downtrend when bulls make a start to step into the rally. The lower shadow is at least twice the length of the body. This is a bullish reversal pattern, indicating the bottoming out of a trend</p>
+        </div>
+        <div class="pattern">
+            <img src="Shooting_Star_Pattern.jpg" alt="Shooting Star Pattern" width="300">
+            <p><b>Shooting Star:</b> A bearish reversal pattern that occurs after an uptrend, signaling rejection of higher prices. The long upper shadow shows selling pressure at higher levels.</p>
+        </div>
+        <p>Additional patterns like <b>Engulfing Patterns</b>, <b>Harami Patterns</b>, and <b>Doji Candles</b> provide insights into market sentiment</section>
+
+    <!-- Section: Chart Patterns -->
     <section id="patterns" class="technical">
         <h2>Important Chart Patterns</h2>
-        <p>Chart patterns are formations created by the movement of a stock's price. Some of the most common patterns include:</p>
+        <p>Chart patterns provide a graphical representation of market psychology. Here are some key patterns:</p>
         <ul>
-            <li><b>Head and Shoulders:</b> A reversal pattern that signals a stock's price is likely to move against the current trend.</li>
-            <li><b>Double Top and Double Bottom:</b> These patterns signal reversals in trends at the peak or trough of a trend.</li>
-            <li><b>Cup and Handle:</b> A continuation pattern that signals bullish momentum after a short pause.</li>
-        </ul>
+            <li><b>Head and Shoulders:</b> A reversal pattern that occurs after an extended uptrend. The middle peak (head) is higher than the two outside peaks (shoulders)         <li><b>Double Top and Double Bottom:</b> A double top indicates a bearish reversal, while a double bottom suggests bullish reversal        <li><b>Triangles:</b> Symmetrical, ascending, and descending triangles indicate periods of consolidation before a breakout     </ul>
     </section>
 
+    <!-- Section: Indicators -->
     <section id="indicators" class="technical">
-        <h2>Indicators & How to Read Them</h2>
-        <p>Technical indicators help traders assess the future direction of the stock market. Common indicators include:</p>
+        <h2>Indicators & Oscillators</h2>
+        <p>Indicators help in analyzing price action. Some key indicators are:</p>
         <ul>
-            <li><b>Moving Averages:</b> Used to smooth out price data by creating a constantly updated average price.</li>
-            <li><b>Relative Strength Index (RSI):</b> A momentum indicator that measures the speed and change of price movements.</li>
-            <li><b>Bollinger Bands:</b> These indicate volatility by measuring the high and low range of price action.</li>
-        </ul>
+            <li><b>Moving Averages:</b> Smooths price data to identify trends. The 50-day and 200-day moving averages are widely used<b>Relative Strength Index (RSI):</b> A momentum oscillator that measures overbought or oversold conditions</li>
+  <b>MACD (Moving Average Convergence Divergence):</b> A trend-following momentum indicator that shows the relationship between two moving averages of a security’s price.</li>
+ 
+    </section>
+
+    <!-- Section: Support and Resistance -->
+    <section id="support-resistance" class="technical">
+        <h2>Support & Resistance</h2>
+        <p><b>Support:</b> A price level where demand is strong enough to stop a price from falling further.</p>
+        <p><b>Resistance:</b> A price level where selling pressure is enough to stop a price from rising further</p>
+        These levels are not exact points but zones where market psychology shifts. Support can turn into resistance and vice versa .</p>
+   Section: Example Chart -->
+    <section id="chart-example" class="technical">
+        <h2>Price Movement Example</h2>
+        
+        
+            <img src="Price_Action.png" alt="Price Action" width="500">
         
     </section>
-    <section id="chart-example" class="technical">
-    <h2>Price Movement Example</h2>
-    <canvas id="priceChart" width="400" height="200"></canvas>
-    </section>
-
-    <script>
-        var ctx = document.getElementById('priceChart').getContext('2d');
-        var priceChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-                datasets: [{
-                    label: 'Stock Price',
-                    data: [120, 130, 125, 140, 135, 150, 160],
-                    borderColor: 'rgba(0, 255, 255, 1)',
-                    backgroundColor: 'rgba(0, 255, 255, 0.2)',
-                    fill: true,
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: false
-                    }
-                }
-            }
-        });
-    </script>
-    <!-- Chatbot Section -->
-    <div class="chatbox" id="chatbox">
-        <div class="chatbox-header">
-            Stock Market Bot
-        </div>
-        <div class="chatbox-body" id="chatbox-body">
-            <div class="chatbox-message bot">Hello! Ask me anything about the stock market.</div>
-        </div>
-        <div class="chatbox-footer">
-            <input type="text" id="user-input" placeholder="Type your message...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
-    
-    <style>
-        /* Chatbot styling */
-        .chatbox {
-            position: fixed;
-            bottom: 0;
-            right: 20px;
-            width: 350px;
-            background-color: #f1f1f1;
-            border-radius: 10px 10px 0 0;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-        }
-    
-        .chatbox-header {
-            background-color: #243b55;
-            color: white;
-            padding: 10px;
-            border-radius: 10px 10px 0 0;
-            font-size: 1.2em;
-            text-align: center;
-        }
-    
-        .chatbox-body {
-            max-height: 300px;
-            overflow-y: auto;
-            padding: 10px;
-            background-color: #ffffff;
-        }
-    
-        .chatbox-message {
-            margin-bottom: 10px;
-        }
-    
-        .chatbox-message.user {
-            text-align: right;
-            color: green;
-        }
-    
-        .chatbox-message.bot {
-            text-align: left;
-            color: red;
-        }
-    
-        .chatbox-footer {
-            padding: 10px;
-            background-color: #f1f1f1;
-        }
-    
-        .chatbox-footer input {
-            width: 85%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-    
-        .chatbox-footer button {
-            width: 10%;
-            padding: 8px;
-            background-color: #00ff00;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
-    
-    <script>
-        // Basic chatbot logic
-        function sendMessage() {
-            const userInput = document.getElementById("user-input").value;
-            const chatboxBody = document.getElementById("chatbox-body");
-    
-            if (userInput === "") return;  // Prevent empty messages
-    
-            // Append user's message to chatbox
-            const userMessageDiv = document.createElement("div");
-            userMessageDiv.className = "chatbox-message user";
-            userMessageDiv.innerText = userInput;
-            chatboxBody.appendChild(userMessageDiv);
-    
-            // Scroll to the bottom after new message
-            chatboxBody.scrollTop = chatboxBody.scrollHeight;
-    
-            // Generate bot response
-            const botMessage = generateResponse(userInput);
-    
-            // Append bot's response to chatbox
-            setTimeout(() => {
-                const botMessageDiv = document.createElement("div");
-                botMessageDiv.className = "chatbox-message bot";
-                botMessageDiv.innerText = botMessage;
-                chatboxBody.appendChild(botMessageDiv);
-    
-                // Scroll to the bottom after bot message
-                chatboxBody.scrollTop = chatboxBody.scrollHeight;
-            }, 500);  // Bot replies after half a second
-    
-            // Clear input field after sending
-            document.getElementById("user-input").value = "";
-        }
-    
-        // Simple response generator function
-        function generateResponse(input) {
-            // Convert input to lowercase for consistency
-            const message = input.toLowerCase();
-    
-            // Basic response logic
-            if (message.includes("candlestick")) {
-                return "Candlestick patterns help in understanding market sentiment. Look for hammer, shooting star, and engulfing patterns.";
-            } else if (message.includes("support") || message.includes("resistance")) {
-                return "Support is a level where a stock stops falling, and resistance is where it stops rising.";
-            } else if (message.includes("moving average")) {
-                return "A moving average smooths out price data. Common ones are the 50-day and 200-day moving averages.";
-            } else if (message.includes("rsi")) {
-                return "RSI (Relative Strength Index) indicates whether a stock is overbought or oversold. Values above 70 are overbought, below 30 are oversold.";
-            } else if (message.includes("macd")) {
-                return "MACD (Moving Average Convergence Divergence) is a trend-following indicator that shows the relationship between two moving averages.";
-            } else {
-                return "I'm still learning. Try asking about candlestick patterns, support/resistance, RSI, or MACD.";
-            }
-        }
-    </script>
-
 
     <footer>
         <p>&copy; 2024 Stock Market Mastery. All Rights Reserved.</p>
