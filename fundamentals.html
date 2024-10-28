@@ -43,7 +43,7 @@
             <p>Tesla’s fundamentals are characterized by high production capacity and innovation in electric vehicles and energy solutions. Despite fluctuating profitability, Tesla’s strong growth in vehicle production and energy solutions makes it a case study in high-growth potential stocks.</p>
         </div>
     </section>
-        <style>
+    <style>
         /* Chatbot styling */
         .chatbox {
             position: fixed;
@@ -148,9 +148,7 @@
             const message = input.toLowerCase();
 
             // Basic response logic
-            if (message.includes("what is the stock market") || message.includes("stock market")) {
-                return "The stock market is a collection of markets where stocks (shares of ownership in businesses) are bought and sold. It enables companies to raise capital by issuing shares, and it provides investors with a way to own a piece of those companies and potentially earn profits through dividends and capital gains.";
-            } else if (message.includes("candlestick")) {
+            if (message.includes("candlestick")) {
                 return "Candlestick patterns are key in understanding market sentiment. Patterns like hammer, shooting star, and engulfing show potential market reversals.";
             } else if (message.includes("support") || message.includes("resistance")) {
                 return "Support is a price level where a stock stops falling, and resistance is a level where it stops rising. These levels help to predict price reversals.";
